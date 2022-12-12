@@ -5,9 +5,7 @@ import { api, ERROR, MSG, newMessageSocket } from '../redux/actions';
 import io from 'socket.io-client';
 import { useEffect } from 'react';
 import MessagePost from './MessagePost';
-const server = io(api, {
-  withCredentials: true,
-});
+const server = io(api);
 const Messages = () => {
   const messageRef = useRef(null);
   const [msgPost, setMsgPost] = useState('');

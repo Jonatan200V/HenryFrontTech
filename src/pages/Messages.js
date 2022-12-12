@@ -13,9 +13,7 @@ import {
   USER_ALL_MSG,
 } from '../redux/actions';
 import io from 'socket.io-client';
-const server = io(api, {
-  withCredentials: true,
-});
+const server = io(api);
 const MessagesPage = () => {
   const [user, setUser] = useState([]);
   const [messagesUser, setMessagesUser] = useState([]);
