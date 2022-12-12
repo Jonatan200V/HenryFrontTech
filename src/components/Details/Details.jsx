@@ -28,7 +28,9 @@ export function Details() {
   const params = useParams();
 
   const dispatch = useDispatch();
-  const server = io(api);
+  const server = io(api, {
+    withCredentials: true,
+  });
   const [select, setSelect] = useState(INITIAL_STATE);
   const { openSelect, drop } = select;
   const { detailsProduct } = useSelector((state) => state);
