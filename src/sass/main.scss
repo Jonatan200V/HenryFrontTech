@@ -1,0 +1,2694 @@
+@import './imports/reset.scss', './imports/mixins.scss',
+  './imports/variables.scss';
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-button {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #fff;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #282c34;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.errors {
+  color: #ff0000;
+  font-weight: bold;
+}
+.loader {
+  width: 100vw;
+  height: calc(100vh - 5.5em);
+  @include flex(column, nowrap, center, center, 0);
+  &__container {
+    width: 20em;
+    height: 20em;
+    background: #ebebeb;
+    @include flex(column, nowrap, center, center, 2em);
+    color: #000;
+    font-size: 1.2em;
+    border-radius: 0.5em;
+  }
+}
+.loading {
+  @include modal();
+}
+.stripe {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  backdrop-filter: blur(1em);
+  @include flex(row, nowrap, center, center, 0);
+  z-index: 1001;
+  &__div {
+    position: relative;
+    width: 18em;
+    height: 18em;
+    background: #fff;
+    color: #004b23;
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 0.5em;
+    @include flex(column, nowrap, center, center, 0);
+  }
+  &__p {
+    padding: 1.5em;
+    width: 100%;
+    font-weight: bold;
+  }
+  &__span {
+    display: inline-block;
+    align-self: flex-end;
+    margin: 0 3em 1.5em 0;
+    font-weight: bold;
+  }
+  &__img {
+    width: 5em;
+    height: 5em;
+  }
+}
+.spinner {
+  width: 8em;
+  height: 8em;
+  border-radius: 50%;
+  border: 1em solid #fff;
+  border-bottom-color: #000;
+  animation: spinner infinite 2s linear;
+}
+.btn-top {
+  position: fixed;
+  z-index: 100;
+  left: 10px;
+  bottom: 10px;
+  opacity: 1;
+  transition: 0.5s ease;
+  background: transparent;
+  @include button-principal();
+  padding: 0.4em;
+}
+.close {
+  opacity: 0;
+}
+.body {
+  overflow: hidden;
+}
+.home {
+  &__carruzel {
+    display: flex;
+    color: #000;
+    width: 100%;
+    transform: translateX(0);
+    gap: 1.2em;
+    transition: 0.5s linear;
+    @include responsive(950px) {
+      width: 100%;
+    }
+    @include responsive(550px) {
+      padding: 0 0 0 0.3em;
+    }
+    @include responsive(480px) {
+      padding: 0 0 0 0.8em;
+    }
+    @include responsive(450px) {
+      padding: 0;
+    }
+    @include responsive(435px) {
+      padding: 0 0 0 0.9em;
+    }
+    @include responsive(425px) {
+      padding: 0 0 0 0.7em;
+    }
+  }
+  &__p {
+    background: #49aaee;
+    @include flex(row, nowrap, space-between, center, 0);
+    padding: 0.5em;
+    font-size: 1em;
+  }
+  &__center {
+    height: calc(25em - 76px);
+    background: url('../../public/assets/responsive/bak.jpg');
+    background-size: contain;
+    background-repeat: repeat;
+    overflow: auto;
+  }
+  &__span {
+    cursor: pointer;
+  }
+  &__message {
+    @include flex(row, nowrap, end, end, 0);
+    margin: 0 0 1em 0;
+    position: fixed;
+    bottom: 5.5em;
+    right: 1em;
+    z-index: 2000;
+  }
+  &__messagees {
+    height: 25em;
+    background: #ebebeb;
+    width: 17em;
+    position: fixed;
+    bottom: 12em;
+    transition: 0.5s linear;
+    transform: translateX(20em);
+  }
+  &__aside--message {
+    transform: translateX(1em);
+  }
+  &__msg {
+    background: #ebebeb;
+    width: 4em;
+    height: 4em;
+    cursor: pointer;
+    @include flex(row, nowrap, center, center, 0);
+    border-radius: 50%;
+  }
+  &__res {
+    @include flex(row, nowrap, flex-end, flex-end, 1em);
+    width: 100vw;
+    @include responsive(900px) {
+      margin: 0 0 1em 0;
+      padding: 0 1em 0 0;
+    }
+  }
+  &__imagesp {
+    width: 2.5em;
+    height: 2.5em;
+  }
+  &__cards {
+    @include flex(column, nowrap, center, center, 1em);
+    width: 59em;
+    margin: auto;
+    box-shadow: inset 0.5em 0.5em 1em #fff;
+    border-radius: 0.5em;
+    padding: 1em;
+    overflow: hidden;
+    @include responsive(950px) {
+      width: 42em;
+      padding: 1em 0;
+    }
+    @include responsive(600px) {
+      width: 95vw;
+    }
+    @include responsive(540px) {
+      width: 90vw;
+    }
+    @include responsive(455px) {
+      width: 95vw;
+    }
+  }
+  &__buttons {
+    @include flex(row, nowrap, center, center, 0.5em);
+  }
+  &__button {
+    position: relative;
+    z-index: 5;
+    border-radius: 50%;
+    height: 1em;
+    width: 1em;
+    background: #ffffff90;
+  }
+  &__select {
+    background: #fff;
+  }
+
+  &__main {
+    @include flex(row, wrap, start, center, 0.4em);
+    position: relative;
+  }
+  &__products {
+    @include flex(column, nowrap, center, center, 1em);
+  }
+  &__pages {
+    flex-grow: 1;
+  }
+}
+.aside {
+  height: 40em;
+  @include flex(column, nowrap, start, center, 0);
+  position: sticky;
+  background: #000;
+  padding: 1em 0;
+  top: 6em;
+  transition: 0.5s linear;
+  @include responsive(900px) {
+    position: fixed;
+    z-index: 500;
+    top: 5.5em;
+    transform: translateX(-15em);
+  }
+  &__view {
+    transform: translateX(0);
+  }
+  &__container {
+  }
+}
+.filter {
+  height: 45em;
+  @include flex(column, nowrap, start, center, 0.5em);
+  background: #000;
+  color: #fff;
+  max-width: 20em;
+  @include responsive(900px) {
+    position: fixed;
+    z-index: 500;
+    width: 224px;
+  }
+  &__input--price {
+    font-size: 1.4em;
+    @include responsive(900px) {
+      font-size: 1em;
+    }
+  }
+  &__div {
+    width: 90%;
+    @include flex(column, nowrap, center, center, 0.5em);
+    border-bottom: 1px solid #ebebeb;
+    padding: 0 0 1em;
+    @include responsive(900px) {
+      padding: 0;
+    }
+  }
+  &__range {
+    @include flex(row, nowrap, center, center, 0.5em);
+  }
+  &__price {
+    font-size: 1.2em;
+    @include responsive(900px) {
+      font-size: 0.9em;
+    }
+  }
+  &__h3 {
+    text-align: center;
+    font-size: 1.5em;
+    @include responsive(900px) {
+      font-size: 1em;
+    }
+  }
+  &__input {
+    width: 8em;
+  }
+  &__map {
+    @include flex(row, nowrap, start, center, 0.5em);
+  }
+  &__categorys {
+    padding: 1em;
+    height: 20em;
+    overflow: auto;
+  }
+  &__category {
+    width: 9em;
+    font-size: 1.3em;
+    @include responsive(900px) {
+      font-size: 0.9em;
+    }
+  }
+  &__marcas {
+    width: 100%;
+    border: 2px solid #fff;
+    border-radius: 2em;
+  }
+  &__check {
+    width: 1.3em;
+    height: 1.3em;
+    border: none;
+    outline: none;
+    &:checked {
+      width: 1.4em;
+      height: 1.4em;
+    }
+  }
+  &__aplique {
+    width: 100%;
+    @include flex(row, nowrap, center, center, 0);
+  }
+  &__button {
+    @include button-principal();
+    background: #fff;
+    color: #000;
+    border-radius: 0;
+  }
+}
+.order {
+  @include flex(column, nowrap, start, center, 0);
+  max-width: 20em;
+  width: 20em;
+  height: 3em;
+  position: relative;
+  @include responsive(900px) {
+    // @include flex(column, nowrap, start, center, 0);
+    width: 14em;
+  }
+  &__container {
+    background: #fff;
+    color: #000;
+    text-align: center;
+    font-size: 1em;
+    width: 85%;
+    @include flex(row, nowrap, space-between, center, 0);
+    padding: 0 0.5em;
+    position: relative;
+    z-index: 20;
+    @include responsive(900px) {
+      width: 100%;
+      font-size: 0.8em;
+    }
+  }
+  &__div {
+    margin: 0 auto;
+    color: #fff;
+    @include flex(column, nowrap, start, start, 0.5em);
+    width: 85%;
+    position: absolute;
+    top: 3em;
+    opacity: 0;
+    background: #282c34;
+    visibility: hidden;
+    transform: translateY(-15em);
+    transition: 0.5s linear;
+    z-index: 10;
+    @include responsive(900px) {
+      width: 100%;
+      z-index: 510;
+    }
+  }
+  &__order {
+    width: 100%;
+    padding: 0 1em;
+    border-bottom: 1px solid #ebebeb;
+    cursor: pointer;
+  }
+  &__img {
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+  }
+  &__toggle {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+#tsparticles {
+  // height: 250vh;
+  position: absolute;
+  width: 100%;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @include flex(column, nowrap, center, center, 0);
+  backdrop-filter: blur(1em);
+  transition: 0.5s linear;
+  z-index: 1001;
+  &__container {
+    width: 20em;
+    height: 20em;
+    background: #000;
+    @include flex(column, nowrap, center, center, 0);
+  }
+  &__close {
+    align-self: flex-end;
+    padding: 0 1.6em;
+    cursor: pointer;
+  }
+  &__form {
+    @include flex(column, nowrap, center, center, 0.9em);
+  }
+  &__login {
+    @include input-defecto(0.4em, 0.8em, 15em);
+    border-radius: 0;
+  }
+  &__acount {
+    @include flex(row, nowrap, space-between, center, 0.5em);
+  }
+  &__link {
+    font-size: 1.1em;
+    transition: 0.5s ease;
+    padding: 0.4em 0;
+    &:hover {
+      text-decoration: 2px #004b23 underline;
+    }
+  }
+  &__button {
+    @include button-principal();
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 0;
+  }
+}
+.header {
+  padding: 1em 2em;
+  @include flex(row, nowrap, space-between, center, 0);
+  border-bottom: 2px solid #fff;
+  height: 5.5em;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  background: #282c34;
+  &__barra {
+    position: relative;
+    @include responsive(860px) {
+      width: 12em;
+      font-size: 1em;
+    }
+    @include responsive(560px) {
+      // display: none;
+      width: 6em;
+      height: 40px;
+      display: none;
+    }
+  }
+  &__absolutesearch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include flex(row, nowrap, center, center, 0);
+  }
+
+  &__absolutes {
+    transform: translateY(-5em);
+    padding: 0.2em 0.5em;
+    font-family: 'Roboto';
+    font-size: 1em;
+    transition: 0.5s linear;
+    &::placeholder {
+      color: #000;
+    }
+  }
+  &__viewsearch {
+    transform: translateY(3.5em);
+  }
+  &__search {
+    @include input-defecto(0.5em, 0.9em, 20em);
+    &::placeholder {
+      color: #000;
+    }
+
+    z-index: 350;
+    @include responsive(894px) {
+      width: 12em;
+      font-size: 1em;
+    }
+    @include responsive(560px) {
+      position: absolute;
+      top: 0;
+      display: none;
+      &:focus {
+        width: 10em;
+      }
+    }
+  }
+  &__logo--img {
+    width: 3em;
+    height: 1.5em;
+    align-self: center;
+  }
+  &__hover {
+    position: relative;
+    cursor: pointer;
+  }
+  &__carl {
+    @include flex(row, nowrap, end, end, 0);
+    padding: 0 0.8em;
+    font-size: 1em;
+    color: #000;
+    font-weight: bold;
+  }
+  &__hover:hover &__ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  &__henry {
+    margin: 0.7em 0 0 0;
+    font-size: 2.2em;
+    align-self: center;
+  }
+  &__options {
+    @include flex(row, nowrap, space-between, center, 1em);
+  }
+  &__login {
+    background: #000;
+    padding: 0.3em 0.4em;
+    border: 0.1em solid #fff;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.5s linear;
+    @include responsive(630px) {
+      padding: 0.1em 0.2em;
+      font-size: 0.8em;
+    }
+    @include responsive(500px) {
+      padding: 0.1em 0.2em;
+      font-size: 1em;
+    }
+  }
+  &__carrito {
+    position: relative;
+  }
+  &__length {
+    background: #000;
+    color: #fff;
+    width: 1.5em;
+    height: 1.5em;
+    @include flex(row, nowrap, center, center, 0);
+    border-radius: 50%;
+    font-weight: bold;
+    position: absolute;
+    left: 1.5em;
+    bottom: 0;
+    border: 1px solid #fff;
+  }
+
+  &__i {
+    position: relative;
+    transition: 0.5s ease;
+  }
+  &__i:hover &__session {
+    opacity: 1;
+    visibility: visible;
+  }
+  &__session {
+    position: absolute;
+    @include button-principal();
+    left: -1.5em;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &__translate {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 310px;
+    background: #fff;
+    height: 100vh;
+    z-index: 1100;
+    transition: 0.5s ease-in-out;
+    @include flex(column, nowrap, start, start, 0);
+  }
+  &__top {
+    width: 100%;
+    @include flex(row, nowrap, space-between, center, 0);
+    color: #000;
+    height: 3em;
+    padding: 0 1em;
+    border-bottom: 1px solid #ebebeb;
+    font-weight: bold;
+  }
+  &__btn {
+    background: transparent;
+  }
+  &__center {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  &__bottom {
+    border-top: 1px solid #ebebeb;
+    @include flex(row, nowrap, space-between, start, 0);
+    width: 100%;
+    padding: 0.6em 1em;
+  }
+  &__total {
+    color: #000;
+    font-weight: bold;
+    padding: 0.2em;
+  }
+  &__item {
+    background: #000;
+    padding: 0.2em 0.4em;
+    border-radius: 0.2em;
+  }
+  &__image {
+    @include flex(column, nowrap, center, center, 0);
+    height: 100%;
+    text-align: center;
+  }
+  &__img {
+    width: 17em;
+    height: 17em;
+  }
+  &__span {
+    color: #000;
+    font-weight: bold;
+  }
+  &__drop {
+    cursor: pointer;
+    width: 1.6em;
+    height: 1.6em;
+  }
+  &__dropitem {
+    width: 100%;
+    color: #000;
+    transition: 0.5s linear;
+  }
+}
+.carruzel {
+  display: flex;
+  transition: 0.5s ease;
+  transform: translateX(0);
+  margin: 0 0 3em 0;
+  @include responsive(600px) {
+    margin: 0 0 1em 0;
+  }
+  &__div {
+    position: relative;
+  }
+  &__button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 5em;
+    @include flex(row, nowrap, center, center, 0);
+  }
+  &__button:nth-child(1) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5em;
+    @include flex(row, nowrap, start, center, 0);
+  }
+  &__btn {
+    @include flex(row, nowrap, center, center, 0);
+    font-size: 2.3em;
+    border: 2px solid #fff;
+    border-radius: 0 50% 50% 0;
+    background: transparent;
+    color: #fff;
+    font-weight: bold;
+    font-family: $font-principal;
+  }
+  &__btn2 {
+    @include flex(row, nowrap, center, center, 0);
+    border-radius: 50% 0 0 50%;
+    font-size: 2.3em;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-weight: bold;
+    font-family: $font-principal;
+  }
+  &__img {
+    width: 100vw;
+  }
+}
+.register {
+  height: calc(100vh - 7.5em);
+  &__container {
+    height: 100%;
+    @include flex(column, nowrap, center, center, 0.5em);
+    position: relative;
+    z-index: 20;
+  }
+  &__form {
+    width: 30em;
+    height: 30em;
+    background: #000;
+    @include flex(column, nowrap, center, center, 1.4em);
+  }
+  &__input {
+    @include input-defecto(0.4em, 0.9em, 22em); // @include f;
+    border-radius: 0;
+  }
+  &__password {
+    width: 11em;
+  }
+  &__button {
+    @include button-principal();
+    background: #fff;
+    color: #000;
+    border-radius: 0;
+  }
+  &__dos {
+    @include flex(row, nowrap, center, center, 0.1em);
+  }
+  &__span {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: -20px;
+    color: red;
+    font-size: 1.045em;
+  }
+  &__validate {
+    position: relative;
+    @include flex(column, nowrap, center, center, 0);
+  }
+}
+.car {
+  margin: 2em 0 0 0;
+  width: 100vw;
+  @include flex(row, nowrap, center, center, 1.2em);
+  position: relative;
+  z-index: 2;
+  &__map {
+    width: 40em;
+    @include flex(column, nowrap, center, center, 0.5em);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14em, 1fr));
+  }
+  &__container {
+    margin: 0.5em 0 0 0;
+    background: #fff;
+    @include flex(row, nowrap, center, start, 0.5em);
+    color: #000;
+    height: 6em;
+    margin: 0.5em 0.4em;
+    border: 1px solid #ebebeb;
+    width: 100%;
+  }
+  &__description {
+    @include flex(column, nowrap, center, center, 0.5em);
+    height: 100%;
+  }
+  &__product {
+    display: flex;
+    gap: 1em;
+  }
+  &__p {
+    width: 15em;
+  }
+  &__img {
+    width: 5em;
+    height: 5em;
+    object-fit: contain;
+  }
+  &__total {
+    background: #fff;
+    // font-size: 1.4em;
+    color: #000;
+    padding: 0.5em;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    font-weight: bold;
+    border-radius: 1em;
+    text-align: center;
+  }
+  &__btn {
+    align-self: end;
+    margin: 0.5em 1em 0.5em 0.5em;
+    background: transparent;
+  }
+  &__count {
+    font-weight: bold;
+  }
+  &__button {
+    background: #000;
+
+    // padding: 0.5em 1em;
+    // padding: 0.1em 0.4em;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 1em;
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: $font-principal;
+    @include flex(row, nowrap, center, center, 0.3em);
+    transition: 0.5s linear;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.product {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+  gap: 0.6em;
+  color: #232;
+  &__btn {
+    background: transparent;
+  }
+  &__article {
+    width: 20em;
+    position: relative;
+    background: #fff;
+    padding: 1em;
+    border-radius: 1em;
+    align-self: center;
+    justify-self: center;
+    @include responsive(956px) {
+      width: 15em;
+      height: 18em;
+      padding: 1em;
+    }
+    @include responsive(600px) {
+      padding: 1em;
+    }
+    @include responsive(470px) {
+      padding: 0;
+    }
+  }
+  &__favorit {
+    position: absolute;
+    right: 0.3em;
+    top: 0.3em;
+    cursor: pointer;
+    @include flex(row, nowrap, center, center, 0.5em);
+  }
+  &__img {
+    width: 15em;
+    height: 18em;
+    object-fit: contain;
+    @include responsive(956px) {
+      width: 10em;
+      height: 7em;
+    }
+  }
+  &__container {
+    @include flex(column, nowrap, center, center, 0);
+  }
+  &__top {
+    width: 100%;
+    padding: 0 0 0 1.25em;
+  }
+  &__name {
+    width: 15em;
+    height: 4em;
+    @include responsive(956px) {
+      width: 12.5em;
+      font-size: 0.8em;
+      // height: 18em;
+    }
+  }
+  &__bottom {
+    width: 100%;
+    padding: 0 0 0 1.25em;
+  }
+  &__rating {
+    color: $color-star;
+    font-size: 1.4em;
+  }
+  &__stock {
+    font-weight: bold;
+    @include flex(row, nowrap, center, center, 0.5em);
+  }
+  &__flex {
+    display: flex;
+  }
+  &__stock--icon {
+    @include flex(row, nowrap, center, center, 0.2em);
+  }
+  &__category {
+  }
+  &__price {
+  }
+  &__button {
+    @include button-principal();
+    @include responsive(956px) {
+      width: 3em;
+      overflow: hidden;
+    }
+  }
+}
+.pagination {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding: 1em;
+  margin: auto;
+  &__div {
+    @include flex(row, nowrap, center, center, 0.2em);
+  }
+  &__container {
+    margin: 2em 0;
+    position: relative;
+    z-index: 10;
+  }
+  &__div {
+    @include flex(row, nowrap, center, center, 0.5em);
+  }
+  &__button {
+    margin: auto;
+    @include button-principal();
+  }
+}
+.details {
+  position: relative;
+  z-index: 30;
+  @include flex(row, wrap, center, center, 1em);
+  background: #282c34;
+  border-radius: 1em;
+  padding: 2em;
+  color: #fff;
+  max-width: 76em;
+  margin: 4em auto 0;
+  &__mar {
+    margin: 0 0 2em 0;
+  }
+  &__portal {
+    box-shadow: 0.5em 0.8em 1em #000;
+    position: absolute;
+    z-index: 5;
+  }
+  &__images {
+    @include flex(column, wrap, center, center, 1em);
+    @include responsive(625px) {
+      @include flex(row, wrap, center, center, 1em);
+    }
+  }
+  &__image {
+    width: 3.5em;
+    height: 3.5em;
+    cursor: pointer;
+    border-radius: 0.5em;
+  }
+  &__center {
+    width: 30em;
+    object-fit: contain;
+    height: 40em;
+    @include flex(column, wrap, center, center, 1em);
+    background: #fff;
+    border-radius: 2em;
+    box-sizing: border-box;
+  }
+  &__special {
+    @include flex(row, nowrap, start, center, 0);
+    height: 10em;
+    & img {
+      object-fit: contain;
+    }
+  }
+  &__left {
+    @include flex(column, nowrap, space-between, center, 0);
+    height: 40em;
+  }
+  &__h2 {
+    font-size: 1.5em;
+    font-weight: 500;
+    @include flex(row, wrap, space-between, center, 0);
+    position: relative;
+  }
+  &__name {
+    width: 100%;
+    font-weight: bold;
+  }
+  &__favorit {
+    align-self: flex-start;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+  }
+  &__img {
+    object-fit: contain;
+    box-sizing: border-box;
+  }
+  &__description {
+    width: 30em;
+    overflow: auto;
+  }
+  &__price {
+    font-size: 2em;
+    @include flex(row, nowrap, center, center, 0.4em);
+  }
+  &__border {
+    border: 2px solid $color-star;
+  }
+  &__p {
+    font-size: 2em;
+  }
+  &__rating {
+    color: $color-star;
+  }
+  &__button {
+    @include button-principal();
+    font-weight: bold;
+  }
+  &__centerx {
+    height: 100%;
+    @include flex(column, nowrap, start, start, 0.5em);
+  }
+  &__brand {
+  }
+  &__views {
+  }
+  &__send {
+    @include flex(row, nowrap, start, center, 0.4em);
+  }
+  &__stock {
+    @include flex(row, nowrap, start, center, 0.2em);
+  }
+  &__dis {
+    font-size: 0.7em;
+  }
+  &__count {
+    @include flex(row, nowrap, center, center, 0.5em);
+  }
+
+  &__span {
+    font-size: 2em;
+  }
+  &__bot {
+    position: relative;
+    z-index: 1;
+  }
+  &__dpago {
+    margin: 3em 0 0 0;
+    @include flex(row, wrap, center, start, 1em);
+    height: 100%;
+  }
+  &__bottom {
+    padding: 2em;
+    line-height: 1.5;
+    font-size: 1.2em;
+    height: 26em;
+    background: #282c34;
+    box-shadow: 0.1em 0.1em 0.3em 0.1em #000;
+    border-radius: 0.5em;
+    width: 50em;
+    overflow: auto;
+  }
+  &__pago {
+    line-height: 1.5;
+    font-size: 1.2em;
+    background: #282c34;
+    height: 15em;
+    box-shadow: 0.4em 0.2em 0.3em #000;
+    border-radius: 0.5em;
+    @include responsive(1000px) {
+      width: 40em;
+    }
+    @include responsive(500px) {
+      width: 100vw;
+    }
+  }
+  &__span {
+    color: #fff;
+    font-size: 1em;
+    display: block;
+    text-align: center;
+    margin: 0 0 1em 0;
+  }
+  &__map {
+    width: 10em;
+    @include flex(row, wrap, center, center, 1em);
+    margin: auto;
+  }
+}
+.review {
+  width: 100%;
+  margin: 2em 0 0 0;
+  border-top: 1px solid #000;
+  @include flex(column, nowrap, center, center, 0);
+  &__form {
+    width: 100%;
+    @include flex(column, nowrap, start, start, 0em);
+  }
+  &__div {
+    @include flex(row, nowrap, center, center, 0.5em);
+  }
+  &__label {
+    display: inline-block;
+    width: 9.5em;
+  }
+  &__input {
+    width: 100%;
+    background: transparent;
+    font-size: 1em;
+    &::placeholder {
+      color: #000;
+    }
+  }
+  &__textarea {
+    @include input-defecto(0.5em, 0.8em, 19em);
+    height: 10em;
+    width: 29em;
+  }
+  &__button {
+    background: transparent;
+  }
+  &__cstar {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+  }
+  &__msg {
+    @include input-defecto(0.5em, 0.8em, 15em);
+    width: 100%;
+    padding: 0 0.4em;
+    @include flex(row, nowrap, center, center, 0.5em);
+    margin: 0 0 1em 0;
+    height: 1.8em;
+  }
+  &__star {
+    cursor: pointer;
+    color: $color-star;
+    font-weight: bold;
+  }
+}
+.footer {
+  background: #282c34;
+  border-top: 2px solid #fff;
+  @include flex(row, nowrap, space-around, center, 1em);
+  &__h1 {
+  }
+  &__ul {
+  }
+  &__li {
+    list-style: none;
+  }
+  &__pago {
+  }
+  &__image {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(2.5em, 1fr));
+    grid-auto-rows: 2.5em;
+    // justify-content: center;
+    // align-items: center;
+    gap: 0.4em;
+  }
+  &__img {
+    width: 2.5em;
+  }
+}
+.comentarios {
+  margin: 2em 0 2em 0;
+  @include flex(column, nowrap, start, center, 0.3em);
+  &__div {
+    @include flex(row, nowrap, start, center, 0.3em);
+    max-width: 1250px;
+  }
+  &__rating {
+    background: #222;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    box-shadow: 0.2em 0.2em 0.1em #000;
+    @include flex(row, nowrap, start, center, 0.3em);
+  }
+  &__cal {
+    font-size: 2em;
+    font-weight: bold;
+    width: 2em;
+    text-align: center;
+  }
+  &__coment {
+    align-self: flex-start;
+  }
+  &__h2 {
+    margin: 0 0 1em 0;
+    padding: 0.3em;
+  }
+  &__div {
+    @include flex(row, wrap, start, start, 1em);
+  }
+  &__star {
+    align-self: start;
+  }
+  &__rating {
+  }
+  &__cal {
+  }
+  &__r {
+  }
+  &__coment {
+    background: #fff;
+    background: #232323;
+    padding: 1em 2em;
+    box-shadow: 0.1em 0.1em 0.2em #000, -0.1em -0.1em 0.2em #000;
+    width: 80vw;
+    @include responsive(1200px) {
+      width: 100vw;
+    }
+  }
+  &__select {
+    @include flex(row, nowrap, start, center, 0.4em);
+    margin: 0 0 2em 0;
+    border-radius: 0.5em;
+  }
+  &__slct {
+    @include background-defecto();
+    padding: 0.3em;
+    border-radius: 0.2em;
+  }
+  &__mapr {
+  }
+  &__h3 {
+    font-weight: 500;
+    color: $color-star;
+    font-size: 1.5em;
+  }
+  &__p {
+  }
+}
+.count {
+  &__div {
+    @include flex(row, nowrap, center, center, 0);
+  }
+  &__span {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
+
+.infop {
+  @include flex(column, nowrap, center, center, 0.5em);
+  height: 100%;
+  &__input {
+    @include input-defecto(0.3em, 0.7em, 13em);
+  }
+  &__button {
+    @include button-principal();
+  }
+}
+.payment {
+  width: 100%;
+  height: 100%;
+  &__container {
+    padding: 1em;
+    margin: 1em 0.5em 0 0.5em;
+    background: #fff;
+    border-radius: 1em;
+    // width: 15em;
+  }
+  &__div {
+    margin: 1em 0 0 0;
+    width: 100%;
+    @include flex(row, nowrap, center, center, 0);
+  }
+  &__button {
+    @include button-principal();
+  }
+  &__h3 {
+    text-align: center;
+  }
+  &__dates {
+    padding: 0.7em 0 0 2em;
+  }
+  &__shipping {
+    font-size: 1.1em;
+  }
+  &__span {
+    display: inline-block;
+    width: 4.5em;
+    font-size: 1em;
+  }
+  &__name {
+    font-size: 1.1em;
+  }
+}
+.about {
+  height: calc(100vh - 203px);
+  &__h1 {
+  }
+  &__p {
+  }
+}
+.questions {
+  @include flex(column, nowrap, center, center, 0.5em);
+  height: calc(100vh - 203px);
+  @include responsive(600px) {
+    width: 100vw;
+  }
+  &__h1 {
+    font-family: 'Roboto';
+    margin: 2em 0 0 0;
+    text-align: center;
+    @include responsive(600px) {
+      width: 100vw;
+      font-size: 1.2em;
+    }
+  }
+  &__p {
+    text-align: left;
+    font-size: 1.2em;
+    line-height: 1;
+    padding: 0.3em 0 0 0;
+    height: 0;
+    opacity: 0;
+    transition: 0.5s linear;
+    width: 30em;
+    padding: 0.3em 1em;
+    background: #282c34;
+    @include responsive(600px) {
+      width: 100vw;
+      font-size: 0.8em;
+    }
+  }
+  .v {
+    height: 6em;
+    opacity: 1;
+    @include responsive(600px) {
+      width: 100vw;
+    }
+  }
+  &__div {
+    font-family: 'Roboto';
+    @include flex(column, wrap, center, center, 0.2em);
+    width: 40em;
+    @include responsive(600px) {
+      width: 100vw;
+    }
+  }
+  &__text {
+    width: 45em;
+    font-size: 1.2em;
+    font-family: 'Roboto';
+    @include responsive(820px) {
+      width: 100vw;
+      font-size: 1em;
+    }
+  }
+  &__h2 {
+    font-weight: 500;
+    padding: 0.2em;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    background: #282c34;
+    font-size: 1em;
+  }
+  &__pos {
+    position: relative;
+    z-index: 1000;
+  }
+}
+.robot {
+  position: relative;
+  height: calc(100vh - 203px);
+  @include flex(column, nowrap, center, center, 0);
+  z-index: 500;
+  &__container {
+    height: calc(100vh - 203px);
+    @include flex(column, nowrap, center, center, 0);
+
+    width: 60vw;
+    background: #282c34;
+    border: 2px solid #fff;
+    @include responsive(900px) {
+      width: 100vw;
+    }
+  }
+  &__img {
+    width: 455px;
+    height: 455px;
+    margin: auto;
+  }
+  &__div {
+    background: #ebebeb;
+    color: #232323;
+    margin: 0 0 1em 0;
+    padding: 0.5em;
+  }
+}
+.pc {
+  position: relative;
+  z-index: 100;
+  @include flex(row, nowrap, start, center, 0);
+  &__container {
+    max-width: 1200px;
+    padding: 1em;
+    @include responsive(1000px) {
+      padding: 0 0.3em;
+    }
+    margin: auto;
+  }
+  &__components {
+    @include flex(row, nowrap, start, start, 2em);
+  }
+  &__component {
+    width: 6em;
+    object-fit: contain;
+    height: 6em;
+    background: #fff;
+  }
+  &__brand {
+    background: #fff;
+    @include flex(row, nowrap, start, center, 0.5em);
+    width: 18em;
+    padding: 0.5em;
+    border-radius: 0.2em;
+  }
+  &__amd {
+    background: #555;
+    border-radius: 0.2em;
+  }
+  &__intel {
+    background: #00a5b9;
+    border-radius: 0.2em;
+  }
+  &__left {
+    align-self: flex-start;
+    padding: 1em 0;
+    border-radius: 0.5em;
+    background: #fff;
+    box-shadow: 0.1em 0.1em 1em #000;
+    width: 30em;
+    max-width: 346px;
+    transition: 0.5s linear;
+    @include responsive(600px) {
+      // display: none;
+      position: fixed;
+      transform: translateX(-25em);
+      z-index: 40;
+    }
+  }
+  &__responsive--div {
+    display: none;
+    @include responsive(600px) {
+      display: block;
+    }
+  }
+  &__responsive--btn {
+    background: transparent;
+  }
+  &__responsive--img {
+    width: 3em;
+    height: 3em;
+  }
+
+  &__viewitem {
+    transform: translateX(0);
+  }
+  &__right {
+    @include flex(row, wrap, end, start, 1em);
+    min-height: 500px;
+    @include responsive(600px) {
+      @include flex(row, wrap, center, center, 1em);
+    }
+  }
+  &__mark {
+    @include flex(row, nowrap, start, center, 0.5em);
+    margin: 0 0 1em 0;
+    @include responsive(600px) {
+      @include flex(row, wrap, center, center, 1em);
+    }
+  }
+  &__image {
+    width: 8em;
+    height: 2em;
+    padding: 0.3em;
+    cursor: pointer;
+  }
+  &__map {
+    cursor: pointer;
+    height: 9em;
+    width: 20em;
+    color: #000;
+    @include flex(row, wrap, start, space-between, 1em);
+    background: #fff;
+    border-radius: 0.5em;
+    position: relative;
+  }
+  &__des {
+    height: 100%;
+    @include flex(column, wrap, space-between, space-between, 1em);
+  }
+  &__name {
+    font-weight: 400;
+    font-size: 1em;
+    font-family: 'Roboto';
+    width: 13em;
+    padding: 1em 0 0 0;
+    font-weight: bold;
+    justify-items: start;
+    height: 5em;
+  }
+  &__price {
+    // align-self: flex-end;
+    padding: 0 0 1em 0;
+    font-weight: bold;
+  }
+  &__h1 {
+    font-family: 'Roboto';
+    padding: 0.2em;
+    background: #fff;
+    color: #000;
+    font-family: 'Roboto';
+  }
+  &__description {
+    font-size: 1.1em;
+    padding: 0.2em;
+    height: 3.5em;
+    margin: 0 0 1em 0;
+    background: #fff;
+    color: #000;
+    font-family: 'Roboto';
+    @include responsive(600px) {
+      height: 100%;
+    }
+  }
+  &__images {
+    cursor: pointer;
+    @include flex(row, nowrap, space-around, center, 0);
+  }
+  &__div {
+    position: relative;
+  }
+  &__i {
+    position: absolute;
+    right: 5px;
+    top: 0;
+  }
+  &__select {
+    filter: brightness(0);
+  }
+  &__selec {
+    border: 1px solid #000;
+    border-radius: 1em;
+  }
+  &__img {
+    width: 4.5em;
+    height: 4.5em;
+    object-fit: contain;
+  }
+  &__dates {
+    @include flex(row, nowrap, space-around, center, 0);
+  }
+  &__total {
+    padding: 0.2em;
+    font-weight: bold;
+    width: 12em;
+    background: #000;
+    color: #fff;
+  }
+  &__buy {
+    @include button-principal--second(0.2em, 0.4em, 0.2em, 0.9em);
+    padding: 0.5em;
+    background: #000;
+    color: #fff;
+  }
+  &__informacion {
+    position: absolute;
+    right: 5px;
+  }
+  &__complete {
+    height: 500px;
+    background: #fff;
+    color: #000;
+    padding: 1em 1.5em;
+    border-radius: 0.5em;
+  }
+  &__h2 {
+  }
+  &__ul {
+    height: calc(100% - 32px);
+    @include flex(column, nowrap, space-between, start, 0);
+  }
+  &__li {
+  }
+  &__span {
+    display: inline-block;
+    width: 1.4em;
+  }
+  &__button {
+    align-self: flex-end;
+    @include button-principal();
+  }
+  &__columnx {
+    @include flex(column, nowrap, space-between, start, 0);
+    max-width: 790px;
+    flex-grow: 1;
+    // @include responsive(600px) {
+    //   @include flex(column, nowrap, center, center, 0);
+    // }
+  }
+  &__periferico {
+    @include flex(row, nowrap, space-between, start, 0.5em);
+    margin: 0 0 1em 0;
+    @include responsive(600px) {
+      margin: 0 auto 1em auto;
+    }
+  }
+  &__btnn {
+    @include button-principal();
+    @include responsive(600px) {
+      font-size: 0.8em;
+    }
+  }
+}
+.portal {
+  position: absolute;
+  z-index: 300;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(1em);
+  @include flex(row, nowrap, center, center, 0);
+  &__div {
+    width: 50em;
+    height: 30em;
+    background: #282c3490;
+    border-radius: 1em;
+    border: 2px solid #fff;
+    @include flex(column, nowrap, center, center, 1em);
+    position: relative;
+  }
+  &__carruzel {
+    width: 20em;
+    overflow: hidden;
+    @include flex(row, nowrap, start, center, 0);
+    margin: auto;
+  }
+  &__carruzell {
+    transition: 0.5s ease;
+    @include flex(row, nowrap, center, center, 3em);
+    transform: translateX(-0em);
+  }
+  &__img {
+    width: 20em;
+    height: 20em;
+    margin: 2em 0 0 0;
+    object-fit: contain;
+    background: #fff;
+  }
+  &__buttons {
+    @include flex(row, nowrap, center, center, 0.5em);
+    height: 3em;
+    width: 10em;
+  }
+  &__btn {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+  }
+  &__close {
+    background: transparent;
+    position: absolute;
+    right: 1em;
+    top: 0.2em;
+  }
+  &__button {
+    @include button-principal();
+  }
+}
+.info {
+  position: fixed;
+  z-index: 3000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(1em);
+  visibility: hidden;
+  @include flex(row, nowrap, center, center, 0);
+  &__container {
+    width: 35em;
+    height: 30em;
+    background: #22222250;
+    position: relative;
+    border: 2px solid #fff;
+    border-radius: 0.5em;
+  }
+
+  &__i {
+    position: absolute;
+    right: 10px;
+    top: 4px;
+    cursor: pointer;
+  }
+  &__name {
+    margin: 0 2em 0;
+    margin-bottom: 0;
+    padding: 0 2em;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #000;
+  }
+  &__flex {
+    background: #fff;
+    width: 85%;
+    margin: auto;
+    @include flex(row, nowrap, space-around, center, 0);
+  }
+  &__drop {
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+  }
+  &__acordeon {
+    margin: 2em 0 0 0;
+  }
+  &__description {
+    padding: 0 1em;
+    height: 0;
+    margin: 0.2em 2.5em;
+    transition: 0.2s linear;
+    background: #222;
+    overflow: auto;
+  }
+  .x {
+    height: 14em;
+  }
+  &__open {
+  }
+}
+.informacion {
+  &__close {
+    @include flex(row, nowrap, end, end, 0);
+    cursor: pointer;
+    padding: 0.5em;
+  }
+  &__name {
+    padding: 0 0 0 1em;
+  }
+  &__image {
+    padding: 0 0 0 1em;
+  }
+  &__flex {
+    margin: 2em 0 0 0;
+    @include flex(row, nowrap, start, start, 0);
+    width: 100%;
+  }
+  &__img {
+    width: 12em;
+    height: 16em;
+    object-fit: contain;
+    background: #fff;
+  }
+  &__div {
+    font-size: 1.1em;
+    width: 15em;
+    @include flex(row, nowrap, space-between, center, 0);
+  }
+  &__span {
+    display: inline-block;
+    width: 5em;
+  }
+  &__edit {
+    background: transparent;
+    color: #fff;
+    font-size: 1em;
+    font-family: 'Exo';
+  }
+  &__info {
+    padding: 0 0 0 1em;
+    @include flex(column, nowrap, start, center, 0.5em);
+  }
+  &__divs {
+    padding: 0 0 0 1em;
+  }
+  &__input {
+    background: transparent;
+    width: 110px;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    font-family: 'Exo';
+    font-size: 1em;
+  }
+  &__update {
+    margin: 2em 0 0 0;
+    @include button-principal();
+    background: #fff;
+    color: #000;
+  }
+}
+.espera {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  @include flex(row, wrap, center, center, 0);
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(1em);
+  z-index: 1001;
+
+  &__div {
+    width: 15em;
+    height: 15em;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 1em;
+    @include flex(row, wrap, center, center, 0);
+  }
+}
+.drop {
+  width: 10em;
+  height: 1.6em;
+  background: #fff;
+  padding: 0.1em 0.3em;
+  color: #000;
+  @include flex(row, nowrap, space-between, center, 0);
+  &__select {
+    position: relative;
+    @include flex(column, nowrap, start, start, 0);
+  }
+  &__img {
+  }
+  &__review {
+    align-self: center;
+  }
+  &__image {
+    width: 1.5em;
+    height: 1.5em;
+    align-self: center;
+    cursor: pointer;
+  }
+  &__map {
+    background: #000;
+    padding: 0 0.3em;
+    width: 10em;
+    position: absolute;
+    top: 1.6em;
+  }
+  &__star {
+    font-size: 1.2em;
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+    color: $color-star;
+  }
+}
+.acount {
+  //PANEL IZQUIERDO
+  @include flex(row, nowrap, start, start, 2em);
+  height: 80vh;
+  &__drop {
+    position: relative;
+    width: 20em;
+    height: 90vh;
+  }
+  &__toggle {
+    position: relative;
+    z-index: 1000;
+  }
+  &__flex {
+    @include flex(row, nowrap, center, center, 0);
+    flex-grow: 1;
+    @include responsive(900px) {
+      transform: translateX(-2em);
+      flex-grow: 0;
+    }
+  }
+  &__left {
+    background: #282c34;
+    position: relative;
+    z-index: 300;
+    width: 20em;
+    padding: 2em 1em 0;
+    height: 80vh;
+    flex-grow: 1;
+    position: fixed;
+    top: 5.5em;
+    transition: 0.5s linear;
+    @include responsive(1450px) {
+      width: 14em;
+      border: 1px solid #fff;
+      transform: translateX(-14em);
+    }
+    @include responsive(900) {
+      width: 7em;
+      border: 1px solid #fff;
+
+      transform: translateX(-10em);
+    }
+  }
+  &__dropview {
+    transform: translateX(0em);
+    z-index: 500;
+  }
+  &__div {
+    @include flex(row, nowrap, space-between, start, 0);
+    width: 18em;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #ebebeb;
+    cursor: pointer;
+    transition: 0.5s ease;
+    @include responsive(1450px) {
+      width: 12em;
+    }
+    @include responsive(900px) {
+      width: 12em;
+    }
+  }
+  &__image {
+    width: 1.5em;
+    height: 1.5em;
+  }
+  //PANEL DERECHO QUE SE RENDIRZA DEPENDDIENDO LO DEL IZQUIERDO
+  &__right {
+    @include flex(row, wrap, center, start, 1em);
+    max-width: 1000px;
+    color: #000;
+    flex-shrink: 1.5;
+    flex-grow: 1;
+    @include responsive(600px) {
+      width: 100vw;
+    }
+  }
+  &__favorites {
+    @include flex(row, wrap, center, center, 1em);
+    width: 100%;
+    color: #000;
+    flex-shrink: 1.5;
+    margin: 2em 0 0 0;
+    position: relative;
+    z-index: 300;
+  }
+  &__add {
+    color: #fff;
+    @include flex(column, nowrap, center, center, 4em);
+  }
+  &__text {
+    font-size: 1.5em;
+  }
+}
+.update {
+  padding: 2em;
+  color: #fff;
+  position: relative;
+  z-index: 300;
+  align-self: flex-start;
+  width: 75vw;
+  background: #282c34;
+  flex-grow: 1.5;
+  @include responsive(1400px) {
+    width: 100vw;
+    transform: translateX(-2em);
+  }
+  @include responsive(1000px) {
+    width: 100vw;
+    transform: translateX(0);
+  }
+  &__config {
+    background: transparent;
+    width: 100vw;
+    position: relative;
+    z-index: 500;
+    @include flex(row, nowrap, end, end, 0);
+  }
+  &__buttonopen {
+    display: none;
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0 2em 0 0;
+    cursor: pointer;
+    @include responsive(1450px) {
+      display: block;
+    }
+  }
+  &__container {
+  }
+  &__form {
+  }
+  &__div {
+    @include flex(row, nowrap, space-between, start, 0);
+    width: 100%;
+    padding: 0.5em 0;
+  }
+  &__label {
+    width: 10em;
+    // background: red;
+  }
+  &__flex {
+    @include flex(row, nowrap, space-between, start, 0.5em);
+  }
+  &__input {
+    width: 21em;
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    font-size: 1em;
+  }
+  &__pass {
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    font-size: 1em;
+    width: 9.5em;
+    margin: 0 0.5em 0 0;
+  }
+  &__btn {
+    color: #fff;
+    background: transparent;
+    padding: 0.2em;
+    font-size: 1.1em;
+    font-family: 'Roboto';
+    &:hover {
+      background: #000;
+      color: #fff;
+    }
+  }
+  &__submit {
+    @include button-principal();
+    background: #000;
+    color: #fff;
+  }
+  &__error {
+    color: #ff0000;
+  }
+}
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.home__image-gif {
+  width: 15em;
+  height: 15em;
+}
+.admin {
+  max-width: 1250px;
+  margin: 3em auto 0;
+  &__links {
+    margin: 1em auto 0;
+    position: relative;
+    z-index: 300;
+    max-width: 800px;
+    background: #282c34;
+    padding: 1em 0;
+    @include flex(row, nowrap, space-around, center, 1em);
+  }
+}
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-rows: repeat(1, 300px);
+  gap: 1em;
+  position: relative;
+  z-index: 300;
+  @include responsive(600px) {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    grid-auto-rows: 300px;
+  }
+  &__mon {
+    @include flex(row, nowrap, center, center, 0);
+  }
+  &__graph {
+    grid-column: 1/3;
+    grid-row: 1/2;
+    background: #ebebeb;
+    @include flex(row, nowrap, center, center, 1em);
+  }
+  &__two {
+    position: relative;
+    z-index: 100;
+    gap: 1em;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    grid-template-rows: repeat(1, 300px);
+    margin: 1em 0;
+    @include responsive(600px) {
+      grid-template-columns: repeat(2, minmax(200px, 1fr));
+      grid-auto-rows: 300px;
+    }
+  }
+  &__total {
+    padding: 1em 0 0 0;
+    grid-column: 3/4;
+    grid-row: 1/2;
+    background: #282c34;
+    @include responsive(600px) {
+      grid-column: 1/3;
+      grid-row: 2/3;
+    }
+  }
+  &__item2 {
+    grid-column: 1/3;
+    grid-row: 1/2;
+  }
+  &__item3 {
+    grid-column: 3/5;
+    grid-row: 1/2;
+    @include responsive(600px) {
+      grid-column: 1/3;
+      grid-row: 2/3;
+    }
+  }
+  &__ganancias {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    grid-auto-rows: 1.5em;
+  }
+  &__ganancia {
+    padding: 0 0.5em;
+    border: 1px solid #fff;
+  }
+  &__ganancia2 {
+    border: 1px solid #fff;
+    padding: 0 0.5em;
+  }
+  &__messages {
+    position: relative;
+    z-index: 500;
+  }
+}
+.state {
+  justify-self: center;
+  padding: 0 3.5em 0 0;
+}
+.enlaces {
+  margin-bottom: 1em;
+  position: relative;
+  z-index: 300;
+  @include flex(row, nowrap, center, center, 1em);
+  @include responsive(600px) {
+    flex-direction: column;
+  }
+  &__item {
+    width: 200px;
+    background: #282c34;
+    @include flex(row, nowrap, space-between, center, 1em);
+    padding: 0 2em;
+    flex-grow: 1;
+    cursor: pointer;
+    transition: 0.5s ease;
+    // box-shadow: 10px 10px 5px 0px #fff, -10px -10px -5px 0px #fff;
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0.1em 0.1em 0.2em #fff, -0.1em -0.1em 0.2em #fff;
+    }
+    @include responsive(600px) {
+      width: 100vw;
+    }
+  }
+  &__img {
+    width: 5em;
+    height: 5em;
+  }
+  &__img2 {
+    width: 2em;
+    height: 1.5em;
+  }
+}
+.order__flex {
+  width: 100vw;
+  height: 100vh;
+  margin: 2.5em 0 0 0;
+  position: relative;
+  z-index: 300;
+  @include flex(column, nowrap, start, center, 0);
+}
+.seguro {
+  @include modal();
+  color: #282c34;
+  font-size: 1.2em;
+  font-weight: bold;
+  &__buttons {
+    @include flex(row, nowrap, center, center, 1em);
+  }
+  &__btn {
+    @include button-principal();
+    background: #282c34;
+    width: 3.5em;
+  }
+  &__div {
+    border: 0.4em solid #282c34;
+    border-radius: 0.5em;
+    @include flex(column, nowrap, center, center, 1em);
+    background: #ebebeb;
+    width: 20em;
+    height: 15em;
+  }
+}
+.dashp {
+  @include flex(column, nowrap, center, center, 0);
+  position: relative;
+  z-index: 300;
+  width: 100vw;
+  margin: 2em 0 0 0;
+  &__contain {
+  }
+  &__aux {
+    width: 100vw;
+    max-width: 1400px;
+    @include flex(row, nowrap, end, end, 0);
+  }
+  &__flex {
+    display: grid;
+    width: 100vw;
+    max-width: 1400px;
+    margin: 0;
+    background: rgb(40 44 52);
+    grid-template-columns: 1fr 0.8fr 5fr 1fr 0.5fr 0.2fr;
+    border: 1px solid #fff;
+    padding: 0.5em 0;
+  }
+  &__check {
+  }
+  &__suspense {
+    filter: grayscale(1);
+  }
+  &__divs {
+    @include flex(row, nowrap, start, start, 0.4em);
+    position: absolute;
+    top: 2em;
+    left: -5em;
+    background: #282c34;
+    padding: 0.4em;
+    z-index: 1000;
+    border: 1px solid #fff;
+    @include responsive(1450px) {
+      flex-direction: column;
+      top: 2em;
+      left: -1em;
+    }
+  }
+  &__btns {
+    width: 72px;
+    color: #fff;
+    font-family: 'Roboto';
+    font-weight: bold;
+  }
+  &__btns:nth-child(1) {
+    background: #ff000060;
+  }
+  &__btns:nth-child(2) {
+    background: #03346d80;
+  }
+  &__btns:nth-child(3) {
+    background: #004b2360;
+  }
+  &__btn {
+    background: transparent;
+    font-size: 1em;
+    color: #fff;
+  }
+  &__number {
+    width: 2em;
+  }
+  &__id {
+    place-self: center;
+    padding: 0 0 0 0.5em;
+
+    @include flex(row, nowrap, center, center, 0.5em);
+  }
+  &__image {
+    place-self: center;
+  }
+  &__img {
+    width: 2.5em;
+    height: 2.5em;
+  }
+  &__name {
+    justify-self: start;
+    align-self: center;
+  }
+  &__ofer {
+    place-self: center;
+  }
+  &__button {
+    place-self: center;
+    padding: 0 0.5em 0 0;
+    position: relative;
+  }
+  &__add {
+    border-radius: 50%;
+    // padding: 0.8em 1em;
+  }
+  &__add--img {
+    width: 3em;
+    height: 3em;
+    align-self: end;
+    cursor: pointer;
+    margin: 0 2em 2em;
+  }
+  &__btn {
+    align-self: center;
+    justify-self: center;
+    background: transparent;
+    color: #fff;
+    font-family: 'Exo';
+  }
+  &__delete {
+    @include flex(row, nowrap, center, center, 0.5em);
+    background: transparent;
+  }
+  &__dlt {
+    fill: #fff;
+    background: transparent;
+    justify-self: center;
+  }
+}
+.post {
+  &__container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+    backdrop-filter: blur(1em);
+    @include flex(column, nowrap, center, center, 0);
+  }
+  &__contain {
+    @include flex(row, nowrap, start, start, 0);
+  }
+  &__div--x {
+    width: 5em;
+  }
+  &__alldiv {
+    @include flex(column, nowrap, center, start, 0.5em);
+  }
+  &__flexx {
+    @include flex(row, nowrap, start, start, 0.5em);
+  }
+  &__mid {
+    @include flex(row, nowrap, center, center, 0.5em);
+  }
+  &__allimages {
+    width: 4em;
+    height: 4em;
+  }
+  &__carruzel {
+    width: 30em;
+    @include flex(row, nowrap, start, start, 0);
+    overflow: hidden;
+  }
+  &__carruzell {
+    @include flex(row, nowrap, start, start, 0);
+    transition: 0.5s ease;
+  }
+  &__view {
+    width: 30em;
+    height: 32em;
+    background: #22222250;
+    border: 1px solid #fff;
+  }
+  &__form {
+    width: 30em;
+    background: #22222250;
+    border: 1px solid #fff;
+    border-radius: 0.4em;
+    padding: 0 0 0 1em;
+    height: 32em;
+    @include flex(column, nowrap, center, center, 0.5em);
+  }
+  &__aux {
+    width: 100%;
+    align-self: flex-start;
+    @include flex(column, nowrap, end, end, 0);
+    padding: 1em 2em 0 0;
+  }
+  &__close {
+    cursor: pointer;
+  }
+  &__div {
+    width: 19.7em;
+  }
+  &__flex {
+    @include flex(row, nowrap, space-between, center, 2em);
+  }
+  &__check {
+    @include flex(row, nowrap, space-between, center, 2em);
+  }
+  &__input {
+    background: #000;
+    border: 1px solid #fff;
+    width: 18em;
+    height: 2em;
+    font-size: 1.1em;
+    font-family: 'Roboto';
+    padding: 0.2em 0.5em;
+    color: #fff;
+  }
+  &__textarea {
+    width: 18em;
+    min-height: 6em;
+    color: #fff;
+  }
+  &__files {
+    position: relative;
+    width: 8.5em;
+    overflow: hidden;
+  }
+  &__span {
+    cursor: pointer;
+    display: inline-block;
+    width: 8.5em;
+    position: relative;
+    background: #000;
+    border: 1px solid #fff;
+    z-index: 1;
+    font-family: 'Roboto';
+    padding: 0.2em;
+  }
+  &__ofert {
+    background: #000;
+    border: 1px solid #fff;
+    font-family: 'Roboto';
+    padding: 0.2em;
+  }
+  &__names {
+    padding: 1em 0 1em 2em;
+  }
+  &__file {
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    opacity: 0;
+  }
+  &__button {
+    padding: 0 0 0 2em;
+  }
+  &__btn {
+    @include button-principal();
+    background: #000;
+    color: #fff;
+  }
+  &__img {
+    width: 16em;
+    height: 18em;
+  }
+}
+.response {
+  @include modal();
+  &__container {
+    background: #ebebeb;
+    width: 25em;
+    height: 20em;
+    @include flex(column, nowrap, center, center, 0);
+    border-radius: 0.5em;
+    border: 1px solid #004b23;
+  }
+  &__response {
+    font-size: 1.5em;
+    color: #004b23;
+    text-align: center;
+    font-weight: bold;
+  }
+  &__div {
+    width: 6em;
+    height: 6em;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    // width: 8em;
+    // height: 8em;
+    // border-radius: 50%;
+  }
+  &__buttons {
+    @include flex(row, nowrap, space-between, center, 0);
+  }
+  &__btn {
+    @include button-principal();
+  }
+}
+.facturas {
+  margin: 4em 0 0 0;
+  position: relative;
+  // z-index: 1500;
+  color: #fff;
+  width: 40em;
+  @include flex(row, wrap, center, center, 0);
+  @include responsive(600px) {
+    width: 100vw;
+    @include flex(row, wrap, center, center, 0.5em);
+    margin: 0;
+    background: #282c34;
+  }
+  &__flexx {
+  }
+  &__view {
+    position: relative;
+    z-index: 550;
+  }
+  &__click {
+    @include button-principal();
+    background: #000;
+    color: #ebebeb;
+    cursor: pointer;
+  }
+  &__modal {
+    @include modal();
+    @include flex(column, nowrap, center, center, 0);
+    @include responsive(600px) {
+      height: 30em;
+    }
+  }
+  &__close {
+    background: #ebebeb;
+    padding: 1em 0 0 0;
+    @include flex(column, nowrap, end, end, 0);
+    width: 46.6em;
+    @include responsive(600px) {
+      width: 100vw;
+    }
+  }
+  &__btn {
+    background: #000;
+    margin: 0 1em 0 0;
+  }
+  &__fact {
+    z-index: 10001;
+    background: #ebebeb;
+    height: 30em;
+    overflow: auto;
+    @include flex(column, nowrap, space-between, center, 0);
+    @include responsive(600px) {
+      width: 100vw;
+      height: 50em;
+    }
+  }
+  &__container {
+    background: #ebebeb;
+    @include flex(row, nowrap, start, start, 0.3em);
+    padding: 0.4em 1em;
+  }
+  &__item {
+    color: #282c34;
+  }
+  &__item:nth-child(1) {
+    width: 3em;
+  }
+  &__item:nth-child(2) {
+    width: 35em;
+    @include responsive(600px) {
+      width: 12em;
+    }
+  }
+  &__item:nth-child(3) {
+    width: 6em;
+  }
+  &__state {
+    @include flex(row, nowrap, space-between, end, 0.3em);
+    width: 40em;
+    background: #ebebeb;
+    color: #282c34;
+    padding: 0 1em;
+    @include responsive(600px) {
+      width: 100vw;
+    }
+  }
+}
+.message {
+  @include flex(row, nowrap, center, center, 0);
+  position: relative;
+  z-index: 500;
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr minmax(350px, 3.5fr);
+    width: 75vw;
+    @include responsive(900px) {
+      width: 100vw;
+    }
+    height: calc(100vh - 203px);
+    background: #282c34;
+  }
+  &__map {
+    width: 100%;
+  }
+  &__name {
+    width: 15em;
+    border: 1px solid #ebebeb;
+    padding: 0.5em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  &__input {
+    width: 100%;
+  }
+  &__user {
+    width: 100%;
+    background: #49aaee;
+    font-size: 1.2em;
+    // padding: 0 2em;
+    text-align: center;
+  }
+  &__messagesposts {
+    @include flex(column, nowrap, start, start, 0);
+    width: 100%;
+  }
+  &__postadmin {
+    background: #282c34;
+    color: #ebebeb;
+    padding: 0.5em;
+    width: 50%;
+    border-radius: 0.5em;
+    align-self: flex-end;
+  }
+  &__post {
+    padding: 1em;
+    height: calc(100vh - 284px);
+    overflow: auto;
+  }
+  &__postuser {
+    background: #49aaee;
+    color: #ebebeb;
+
+    padding: 0.5em;
+    width: 50%;
+    border-radius: 0.5em;
+  }
+  &__div {
+    @include flex(column, nowrap, start, start, 0);
+    width: 100%;
+  }
+  &__div:nth-child(2) {
+    background: url('../../public/assets/responsive/bak.jpg');
+    background-size: contain;
+    background-repeat: repeat;
+  }
+}
+.msg {
+  &__postuser {
+    align-self: flex-end;
+    background: #282c34;
+  }
+  &__postadmin {
+    align-self: flex-start;
+    background: #49aaee;
+  }
+}
